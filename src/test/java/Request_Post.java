@@ -1,7 +1,8 @@
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
-
+import org.hamcrest.core.Is;
 import static io.restassured.RestAssured.*;
+
 
 public class Request_Post {
     @Test
@@ -17,6 +18,7 @@ public class Request_Post {
                 post("https://reqres.in/api/users").
         then().
                 statusCode(201).
+                body("Name", Is.is("Gevorg")).
         log().all();
     }
 

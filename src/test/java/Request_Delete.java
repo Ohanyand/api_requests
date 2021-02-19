@@ -1,6 +1,7 @@
+import org.hamcrest.core.Is;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
-
+import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
 
 public class Request_Delete {
@@ -10,7 +11,7 @@ public class Request_Delete {
     given().
     delete("https://reqres.in/api/users/2").
     then().
-    statusCode(204).
+    statusCode(204).body(is("")).
     log().all();
 }
 }

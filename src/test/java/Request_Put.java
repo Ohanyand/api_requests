@@ -1,7 +1,7 @@
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
+import org.hamcrest.core.Is;
 
 public class Request_Put {
     @Test
@@ -16,7 +16,7 @@ public class Request_Put {
                 when().
                 put("https://reqres.in/api/users/2").
                 then().
-                statusCode(200).
+                statusCode(200).body("Job",Is.is("PM")).
                 log().all();
     }
 }
